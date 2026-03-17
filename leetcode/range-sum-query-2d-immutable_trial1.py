@@ -2,11 +2,6 @@ class NumMatrix:
 
     def __init__(self, matrix: List[List[int]]):
         self.pre = [[0] * (len(matrix[0]) + 1) for _ in range(len(matrix) + 1)]
-        # self.pre[0][0]=matrix[0][0]
-        # for i in range(1,len(matrix[0])):
-        #     self.pre[0][i]=self.pre[i-1]+matrix[0][i]
-        # for i in range(1,len(matrix)):
-        #     self.pre[i][0]=self.pre[i-1][0]+matrix[i][0]
         for i in range(1,len(matrix)+1):
             for j in range(1,len(matrix[0])+1):
                 self.pre[i][j]=matrix[i-1][j-1]+self.pre[i][j-1]+self.pre[i-1][j]-self.pre[i-1][j-1]
